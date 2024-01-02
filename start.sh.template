@@ -1,2 +1,4 @@
 #!/bin/sh
-java {{ .javaopts }} -jar server.jar --nogui
+set -eu
+cd /app
+/usr/bin/java {{ .javaopts }} -jar server.jar --nogui
