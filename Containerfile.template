@@ -1,0 +1,11 @@
+FROM {{ .image }}
+
+ADD start.sh /app/start.sh
+
+RUN cd /app && \
+	chmod 0755 start.sh && \
+	curl -o server.jar '{{ .serverJarURL }}' && \
+	echo "{{ .sha256 }}  server.jar" > CHECKSUMS && \
+	sha256sum -c CHECKSUMS
+
+ENTRYPOINT [ "/app/start.sh" ]

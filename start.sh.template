@@ -1,0 +1,2 @@
+#!/bin/sh
+java {{ .javaopts }} -jar server.jar --nogui
