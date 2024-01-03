@@ -1,6 +1,8 @@
 FROM {{ .image }}
 
 ADD start.sh /app/start.sh
+ADD eula.txt /app/eula.txt
+ADD server.properties /app/server.properties
 
 RUN apt-get update && \
 	apt-get install -y curl {{ .openjdk }} && \
